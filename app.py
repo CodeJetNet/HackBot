@@ -29,7 +29,7 @@ def handle_message(event_data):
     response = slack_web_client.users_info(user=message["user"])
     user_name = response["user"]["name"]
     if "joe" in user_name:
-        slack_web_client.chat_postMessage(channel=channel, text="Fuck off Joe.")
+        slack_web_client.chat_postMessage(channel=channel, text="Bad touch, Joe.")
         return
 
     if message.get("subtype") is None and "hi" in message.get('text'):
