@@ -32,7 +32,7 @@ def handle_message(event_data):
         slack_web_client.chat_postMessage(channel=channel, text="Bad touch, Joe.")
         return
 
-    if message.get("subtype") is None and "hi" in message.get('text'):
+    if message.get("subtype") is None and "Hi!" in message.get('text'):
         message = "Hello <@%s>! :tada:" % message["user"]
         slack_web_client.chat_postMessage(channel=channel, text=message)
         return
