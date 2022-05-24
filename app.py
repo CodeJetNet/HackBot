@@ -44,6 +44,12 @@ def handle_message(event_data):
             result = "tails"
         slack_web_client.chat_postMessage(channel=channel, text=result)
 
+    if "!fact" in message.get('text'):
+        f = open('facts.txt', 'r+')
+        lines = [line for line in f.readlines()]
+        f.close()
+        slack_web_client.chat_postMessage(channel=channel, text=random.choice(lines))
+
 
 if __name__ == "__main__":
     logger = logging.getLogger()
